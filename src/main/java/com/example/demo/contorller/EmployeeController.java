@@ -1,8 +1,7 @@
 package com.example.demo.contorller;
 
-import com.example.demo.common.datasource.DataSourceType;
-import com.example.demo.common.datasource.DynamicDataSourceContextHolder;
-import com.example.demo.common.mapper.DbUsability;
+
+import com.example.demo.common.mapper.DbUsabilityMapper;
 import com.example.demo.common.model.EmployeesModel;
 import com.example.demo.service.GetEmpInfoServ;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +24,7 @@ public class EmployeeController {
         return getEmpInfoServ.getEmployeesNum();
     }
     @Autowired
-    private DbUsability dbUsability;
+    private DbUsabilityMapper dbUsability;
     @RequestMapping("employee/db")
     public String getDb(){
         return dbUsability.selectDual();

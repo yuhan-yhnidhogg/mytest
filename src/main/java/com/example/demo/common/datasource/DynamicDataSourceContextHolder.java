@@ -18,17 +18,19 @@ public class DynamicDataSourceContextHolder {
      * 设置数据源的变量
      */
     public static void setDataSourceType(String dsType){
-        log.info("切换到{}数据源", dsType);
+//        log.info("切换到{}数据源", dsType);
 //        CONTEXT_HOLDER = dsType;
         setDataSourceType(dsType,0);
     }
 
     public static void setDataSourceType(String dsType,int ThreadFlag){
-        log.info("change datasource{}",dsType);
+//        log.info("change datasource{}",dsType);
         THREAD_CONTEXT_HOLERS.set(dsType);
         if (0 == ThreadFlag){
-            log.info("changed all thread");
+            log.info("change datasource {} all thread",dsType);
             CONTEXT_HOLDER = dsType;
+        }else{
+            log.info("change datasource {} this thread",dsType);
         }
     }
     /**
@@ -47,6 +49,7 @@ public class DynamicDataSourceContextHolder {
      */
     public static void resetDataSourceType() {
         log.info("切换到{}数据源", DEFAULT_DATASOURCE);
+        THREAD_CONTEXT_HOLERS.remove();
         CONTEXT_HOLDER = DEFAULT_DATASOURCE;
     }
 
