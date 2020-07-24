@@ -48,3 +48,8 @@ mybatis:
 #  configuration:
 #    cache-enabled: false
 #    local-cache-scope: statement
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
